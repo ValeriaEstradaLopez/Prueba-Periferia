@@ -1,0 +1,64 @@
+<div class="container-md  ">
+
+
+    <div class="row justify-content-md-center ">
+        <div class="col-sm-4 border ">
+            <h3 class="title">Información básica</h3>
+            <form action="" [formGroup]="firstFormGroup" #ngForm="ngForm" (ngSubmit)="buscarUsuario()">
+                <div class=" m-3" *ngIf="listaTipoDocumento">
+
+                    <label class="input-group-text" for="inputGroupSelect01">Tipo de documento</label>
+                    <select class="form-select" id="inputGroupSelect01" name="tipoDoc" formControlName="tipoDoc">
+                        <option selected></option>
+                        <option *ngFor="let tipo of listaTipoDocumento" [value]=tipo>{{tipo}}</option>
+                    </select>
+                    <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Este campo es requerido',
+                    control: firstFormGroup.controls['tipoDoc']}">
+                    </ng-container>
+                </div>
+                <div class="m-3">
+                    <label for="exampleFormControlInput1" class="form-label">Numero de documento</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ej: 123455"
+                        name="numeroDocumento" formControlName="numeroDocumento">
+                        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                            validation: 'pattern',
+                            message: 'Solo se permiten números',
+                            control: firstFormGroup.controls['numeroDocumento']}">
+                        </ng-container>
+                        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                            validation: 'minlength',
+                            message: 'Deben ser minimo 8 caracteres',
+                            control: firstFormGroup.controls['numeroDocumento']}">
+                        </ng-container>
+                        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                                validation: 'maxlength',
+                                message: 'Deben ser máximo 11 caracteres',
+                                control: firstFormGroup.controls['numeroDocumento']}">
+                        </ng-container>
+                        <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                                    validation: 'required',
+                                    message: 'Este campo es requerido',
+                                    control: firstFormGroup.controls['numeroDocumento']}">
+                        </ng-container>
+                </div>
+               
+                <div class="d-grid gap-2 col-4 mx-auto mb-3">
+                    <button class="btn btn-primary" [disabled]="ngForm.form.invalid" type="submit" >Buscar</button>
+                </div>
+                <p>{{errorMessage}}</p>
+            </form>
+            <ng-template #formError let-control="control" let-message="message" let-validation="validation">
+                <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+                    <div class="fv-plugins-message-container">
+                        <div class="fv-help-block">
+                            {{ message }}
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-template>
+        </div>
+    </div>
+   
+</div>

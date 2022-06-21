@@ -1,0 +1,55 @@
+<div class="container-md  ">
+<div class="row justify-content-md-center ">
+    <div class="col-sm-4 border " *ngIf="userInfo" >
+
+        <h3 class="title">Información básica</h3>
+
+        <div class=" m-3" >
+
+            <label for="exampleFormControlInput1" class="form-label">Primer Nombre</label>
+            <input type="text" class="form-control"  disabled [value]=userInfo.primerNombre>
+
+        </div>
+        <div class=" m-3" >
+
+            <label for="exampleFormControlInput1" class="form-label">Segundo Nombre</label>
+            <input type="text" class="form-control"  disabled [value]=userInfo.segundoNombre>
+
+        </div>
+        <div class=" m-3" >
+
+            <label for="exampleFormControlInput1" class="form-label">Primer Apellido</label>
+            <input type="text" class="form-control"  disabled [value]=userInfo.primerApellido>
+
+        </div>
+        <div class=" m-3" >
+
+            <label for="exampleFormControlInput1" class="form-label">Segundo Apellido</label>
+            <input type="text" class="form-control"  disabled [value]=userInfo.segundoApellido>
+
+        </div>
+        <div class=" m-3" >
+
+            <label for="exampleFormControlInput1" class="form-label">Telefono</label>
+            <input type="text" class="form-control"  disabled [value]=userInfo.telefono>
+
+        </div>
+        <div class=" m-3" >
+
+            <label for="exampleFormControlInput1" class="form-label">Direccion</label>
+            <input type="text" class="form-control"  disabled [value]=userInfo.direccion>
+
+        </div>
+        <div class=" m-3" >
+
+            <label for="exampleFormControlInput1" class="form-label">Ciudad</label>
+            <input type="text" class="form-control"  disabled [value]=userInfo.ciudadResidencia>
+
+        </div>
+        <div class="d-grid gap-2 col-4 mx-auto mb-3">
+            <button class="btn btn-success"  type="button" routerLink="/" >Volver</button>
+            
+        </div>
+    </div>
+</div>
+</div>
